@@ -8,7 +8,7 @@ class AppRoutes {
   static const String login = "/login";
 
   /// 列表
-  static const String list = "/list"
+  static const String list = "/list";
 
   /// 跳转首页
   static void toMain() {
