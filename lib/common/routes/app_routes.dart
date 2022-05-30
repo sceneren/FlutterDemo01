@@ -10,6 +10,9 @@ class AppRoutes {
   /// 列表
   static const String list = "/list";
 
+  /// 测试
+  static const String test = "/test";
+
   /// 跳转首页
   static void toMain() {
     Get.offNamed(frame);

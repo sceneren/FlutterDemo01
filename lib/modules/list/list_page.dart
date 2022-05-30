@@ -2,6 +2,7 @@ import 'package:demo01/widget/custom_stateless_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:demo01/widget/custom_top_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'list_logic.dart';
 
@@ -31,8 +32,27 @@ class ListPage extends StatelessWidget implements CustomStatelessWidget {
 
   @override
   Widget buildBody() {
-    return CustomTopBar(
-      title: "列表",
+    return GestureDetector(
+      child: Text("测试"),
+      onTap: () {
+        Get.defaultDialog(
+          title: "测试",
+          radius: 10.w,
+          content: Text("内容"),
+          confirmTextColor: Colors.red,
+          textConfirm: "确定",
+          cancelTextColor: Colors.blue,
+          textCancel: "取消",
+          onConfirm: () {
+            print("确定");
+            Get.back();
+          },
+          onCancel: () {
+            print("取消");
+            Get.back();
+          },
+        );
+      },
     );
   }
 }
