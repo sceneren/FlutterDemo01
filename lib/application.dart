@@ -52,6 +52,7 @@ class Application extends StatelessWidget {
               headerBuilder: () => const ClassicHeader(),
               footerBuilder: () => const ClassicFooter(),
               child: GetMaterialApp(
+                debugShowCheckedModeBanner: false,
                 navigatorObservers: [
                   // myRouteObserver,
                   routeObserver,
