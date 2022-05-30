@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'common/observers/my_route_observer.dart';
 import 'common/utils/view_utils.dart';
@@ -47,22 +46,20 @@ class Application extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return MediaQuery(
-          data: MediaQueryData.fromWindow(WidgetsBinding.instance.window).copyWith(textScaleFactor: 1.0),
-          child: RefreshConfiguration(
-              headerBuilder: () => const ClassicHeader(),
-              footerBuilder: () => const ClassicFooter(),
-              child: GetMaterialApp(
-                debugShowCheckedModeBanner: false,
-                navigatorObservers: [
-                  // myRouteObserver,
-                  routeObserver,
-                ],
-                scrollBehavior: MyCustomScrollBehavior(),
-                //全局loading
-                builder: EasyLoading.init(),
-                initialRoute: AppRoutes.frame,
-                getPages: AppPages.pages,
-              )),
+          data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
+              .copyWith(textScaleFactor: 1.0),
+          child: GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            navigatorObservers: [
+              // myRouteObserver,
+              routeObserver,
+            ],
+            scrollBehavior: MyCustomScrollBehavior(),
+            //全局loading
+            builder: EasyLoading.init(),
+            initialRoute: AppRoutes.frame,
+            getPages: AppPages.pages,
+          ),
         );
       },
     );
