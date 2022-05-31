@@ -4,6 +4,7 @@ class Assets {
 
   static const String imagesAppLogo = '/Users/scene/Documents/flutter_workspace/Demo01/assets/images/app_logo.png';
   static const String imagesBack = '/Users/scene/Documents/flutter_workspace/Demo01/assets/images/back.png';
+  static const String imagesBgLoginBottom = '/Users/scene/Documents/flutter_workspace/Demo01/assets/images/bg_login_bottom.webp';
   static const String imagesHeadLeft = '/Users/scene/Documents/flutter_workspace/Demo01/assets/images/head_left.png';
   static const String imagesHeadLeftProtect = '/Users/scene/Documents/flutter_workspace/Demo01/assets/images/head_left_protect.png';
   static const String imagesHeadRight = '/Users/scene/Documents/flutter_workspace/Demo01/assets/images/head_right.png';

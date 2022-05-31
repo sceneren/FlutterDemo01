@@ -25,4 +25,5 @@ class Res {
 
   ///登录
   static const String icLoginHead = "assets/images/ic_login_head.webp";
+  static const String bgLoginBottom = "assets/images/bg_login_bottom.webp";
 }

@@ -24,4 +24,9 @@ class ColorRes {
   static const colorTitleBarBg = Color(0xFF201C36);
 
   static const color_A8A8A8 = Color(0xFFA8A8A8);
+  static const color_707070 = Color(0xFF707070);
+  static const color_130F25 = Color(0xFF130F25);
+  static const color_01F5AE = Color(0xFF01F5AE);
+
+
 }

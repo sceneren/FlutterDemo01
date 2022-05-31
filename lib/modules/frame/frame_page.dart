@@ -1,9 +1,9 @@
 import 'package:demo01/common/routes/app_routes.dart';
 import 'package:demo01/res/colors.dart';
+import 'package:demo01/widget/base_root_view.dart';
 import 'package:demo01/widget/click_text.dart';
 import 'package:demo01/widget/custom_top_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'frame_logic.dart';
@@ -15,8 +15,7 @@ class FramePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var logic = Get.put(FrameLogic());
-    return AnnotatedRegion(
-      value: SystemUiOverlayStyle.light,
+    return BaseRootView(
       child: Material(
           color: ColorRes.colorBackground,
           child: Column(
@@ -24,8 +23,7 @@ class FramePage extends StatelessWidget {
               _buildTopBar(),
               _buildBody(),
             ],
-          )
-      ),
+          )),
     );
   }
 
