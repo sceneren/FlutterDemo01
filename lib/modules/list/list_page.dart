@@ -25,8 +25,9 @@ class ListPage extends StatelessWidget implements CustomStatelessWidget {
 
   @override
   Widget buildTitleBar() {
-    return CustomTopBar(
-      title: "列表",
+    return CustomTitleBar(
+      title: "列表列表列表列表列表列表列表列表列表列表列表列表列表列表列表",
+      isShowBack: true,
     );
   }
 

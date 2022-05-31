@@ -19,19 +19,20 @@ class _TestPageState extends State<TestPage> {
     return Scaffold(
       body: Center(
           child: Column(
-            children: [
-              CustomTopBar(
-                title: "测试",
-              ),
-              GetBuilder<TestLogic>(
-                builder: (logic) {
-                  return Text(
-                    '点击了 ${state.count} 次',
-                    style: TextStyle(fontSize: 30.w),
-                  );
-                },
-              ),
-            ],
+        children: [
+          CustomTitleBar(
+            title: "测试",
+            isShowBack: true,
+          ),
+          GetBuilder<TestLogic>(
+            builder: (logic) {
+              return Text(
+                '点击了 ${state.count} 次',
+                style: TextStyle(fontSize: 30.w),
+              );
+            },
+          ),
+        ],
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () => logic.increase(),

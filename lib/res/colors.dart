@@ -2,7 +2,6 @@ import 'dart:ui';
 
 /// 颜色管理
 
-
 class ColorRes {
   //背景白色
   static const color_F5F5F9 = Color(0xFFF5F5F9);
@@ -16,9 +15,13 @@ class ColorRes {
   //默认文字颜色
   static const color_AAAAB9 = Color(0xFFAAAAB9);
 
-
-  static const color_767A7F =Color(0xFF767A7F);
-
+  static const color_767A7F = Color(0xFF767A7F);
 
   static const color_6D7278 = Color(0xFF6D7278);
+
+  static const colorBackground = Color(0xFF1C182F);
+
+  static const colorTitleBarBg = Color(0xFF201C36);
+
+  static const color_A8A8A8 = Color(0xFFA8A8A8);
 }

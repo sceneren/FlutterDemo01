@@ -8,4 +8,5 @@ class StringRes {
   static const home = "首页";
   static const rank = "排行";
   static const welcome = "Welcome";
+  static const account = "账号";
 }

@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:demo01/widget/custom_top_bar.dart';
 import 'package:demo01/common/routes/app_routes.dart';
+import 'package:demo01/res/colors.dart';
+import 'package:demo01/widget/click_text.dart';
+import 'package:demo01/widget/custom_top_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 import 'frame_logic.dart';
 
@@ -13,18 +15,23 @@ class FramePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var logic = Get.put(FrameLogic());
-    return Material(
-        child: Column(
-      children: [
-        _buildTopBar(),
-        _buildBody(),
-      ],
-    ));
+    return AnnotatedRegion(
+      value: SystemUiOverlayStyle.light,
+      child: Material(
+          color: ColorRes.colorBackground,
+          child: Column(
+            children: [
+              _buildTopBar(),
+              _buildBody(),
+            ],
+          )
+      ),
+    );
   }
 
   ///头部
   Widget _buildTopBar() {
-    return CustomTopBar(
+    return CustomTitleBar(
       title: "主页",
     );
   }
@@ -32,28 +39,24 @@ class FramePage extends StatelessWidget {
   ///body
   Widget _buildBody() {
     return Column(children: [
-      GestureDetector(
-        onTap: () {
-          Get.toNamed(AppRoutes.list);
-        },
-        child: Container(
-          width: double.infinity,
-          height: 50.w,
-          color: Colors.grey,
-          child: Text("列表"),
-        ),
-      ),
-      GestureDetector(
-        onTap: () {
-          Get.toNamed(AppRoutes.test);
-        },
-        child: Container(
-          width: double.infinity,
-          height: 50.w,
-          color: Colors.grey,
-          child: Text("GetX测试"),
-        ),
-      ),
+      ClickText(
+          text: "登录",
+          textColor: Colors.black,
+          onClick: () {
+            AppRoutes.toLogin();
+          }),
+      ClickText(
+          text: "列表",
+          textColor: Colors.black,
+          onClick: () {
+            Get.toNamed(AppRoutes.list);
+          }),
+      ClickText(
+          text: "GetX测试",
+          textColor: Colors.black,
+          onClick: () {
+            Get.toNamed(AppRoutes.test);
+          }),
     ]);
   }
 }

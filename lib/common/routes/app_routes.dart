@@ -15,6 +15,11 @@ class AppRoutes {
 
   /// 跳转首页
   static void toMain() {
-    Get.offNamed(frame);
+    Get.offAllNamed(frame);
+  }
+
+  ///跳转登录
+  static void toLogin(){
+    Get.offAllNamed(login);
   }
 }

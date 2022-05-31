@@ -41,7 +41,7 @@ class Application extends StatelessWidget {
     // In first method you only need to wrap [MaterialApp] with [ScreenUtilInit] and that's it
 
     return ScreenUtilInit(
-      designSize: Size(375, 667),
+      designSize: const Size(750, 1334),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
