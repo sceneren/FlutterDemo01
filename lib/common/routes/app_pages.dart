@@ -18,12 +18,12 @@ class AppPages {
     GetPage(
         name: AppRoutes.list,
         page: () => const ListPage(),
-        transition: Transition.leftToRight),
+        transition: Transition.rightToLeft),
     //getX测试
     GetPage(
         name: AppRoutes.test,
         page: () => TestPage(),
-        transition: Transition.leftToRight),
+        transition: Transition.rightToLeft),
     //登录
     GetPage(
         name: AppRoutes.login,
