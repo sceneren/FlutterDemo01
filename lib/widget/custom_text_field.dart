@@ -33,7 +33,7 @@ class CustomTextField extends StatelessWidget {
       this.borderColor,
       this.borderWidth,
       this.radius = 0,
-      this.obscureText = true,
+      this.obscureText = false,
       this.paddingLeft = 0,
       this.paddingTop = 0,
       this.paddingBottom = 0,

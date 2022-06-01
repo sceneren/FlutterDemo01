@@ -1,5 +1,6 @@
 import 'package:demo01/common/routes/app_routes.dart';
 import 'package:demo01/common/utils/log_utils.dart';
+import 'package:demo01/common/utils/repeat_click.dart';
 import 'package:demo01/res/colors.dart';
 import 'package:demo01/res/res.dart';
 import 'package:demo01/res/strings.dart';
@@ -10,6 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../widget/custom_text_field.dart';
+import '../../widget/radius_solid_button.dart';
+import '../../widget/radius_stroke_button.dart';
 import 'logic.dart';
 
 class LoginPage extends StatefulWidget {
@@ -93,6 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                           paddingLeft: 16.w,
                           paddingRight: 16.w,
                           paddingBottom: 30.w,
+                          obscureText: true,
                         ),
                         Container(
                           alignment: Alignment.centerRight,
@@ -105,7 +109,24 @@ class _LoginPageState extends State<LoginPage> {
                               logger.e("点击忘记密码");
                             },
                           ),
-                        )
+                        ),
+                        RadiusSolidButton(
+                          marginTop: 50.w,
+                          backgroundColor: ColorRes.color_09B495,
+                          radius: 10.w,
+                          text: StringRes.login,
+                          onClick: () {
+                            logger.e("点击登录===>${DateTime.now()}");
+                          },
+                        ),
+                        RadiusStrokeButton(
+                          marginTop: 24.w,
+                          radius: 10.w,
+                          text: StringRes.register,
+                          onClick: (){
+                            logger.e("点击注册");
+                          },
+                        ),
                       ],
                     ))
               ],

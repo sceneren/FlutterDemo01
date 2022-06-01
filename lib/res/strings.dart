@@ -5,4 +5,6 @@ class StringRes {
   static const password = "密码";
   static const pleaseEnterLoginPassword = "请输入登录密码";
   static const forgetPassword = "忘记密码";
+  static const login = "登录";
+  static const register = "注册";
 }
