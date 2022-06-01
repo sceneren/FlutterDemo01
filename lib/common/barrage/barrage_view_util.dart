@@ -19,13 +19,13 @@ class BarrageViewUtil {
   static _barrageType1(BarrageMo model) {
     return Row(children: [
       ClipRRect(
+        borderRadius: BorderRadius.circular(14.h),
         child: Image.asset(
-          Res.imageUserLogo,
+          Res.icLoginHead,
           height: 28.h,
           width: 28.h,
           fit: BoxFit.cover,
         ),
-        borderRadius: BorderRadius.circular(14.h),
       ),
       const SizedBox(width: 10,),
       Text(

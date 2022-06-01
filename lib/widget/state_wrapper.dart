@@ -72,7 +72,7 @@ class StateWrapper extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            Res.imageStateEmpty,
+            Res.bgLoginBottom,
             width: 150.w,
             height: 150.w,
           ),
@@ -98,7 +98,7 @@ class StateWrapper extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            Res.imageStateEmpty,
+            Res.bgLoginBottom,
             width: 150.w,
             height: 150.w,
           ),
