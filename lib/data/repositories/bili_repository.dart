@@ -1,6 +1,7 @@
-import 'package:demo01/data/provider/api/api_client.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
+
+import '../provider/api/api_client.dart';
 
 /// 数据仓库
 class BiliRepository extends GetxService {

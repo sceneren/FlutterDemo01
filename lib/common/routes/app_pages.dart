@@ -1,10 +1,10 @@
-import 'package:demo01/common/routes/app_routes.dart';
-import 'package:demo01/modules/list/list_page.dart';
-import 'package:demo01/modules/login/view.dart';
-import 'package:demo01/modules/test/view.dart';
 import 'package:get/get.dart';
 
 import '../../modules/frame/view.dart';
+import '../../modules/list/list/view.dart';
+import '../../modules/login/view.dart';
+import '../../modules/test/view.dart';
+import 'app_routes.dart';
 
 class AppPages {
   static final List<GetPage> pages = [
@@ -17,7 +17,7 @@ class AppPages {
     //列表页
     GetPage(
         name: AppRoutes.list,
-        page: () => const ListPage(),
+        page: () => ListPage(),
         transition: Transition.rightToLeft),
     //getX测试
     GetPage(

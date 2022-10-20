@@ -1,5 +1,6 @@
-import 'package:demo01/common/utils/log_utils.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/log_utils.dart';
 
 /// 全局监听路由
 class MyRouteObserver<R extends Route<dynamic>> extends RouteObserver<R> {

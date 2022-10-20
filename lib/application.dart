@@ -1,13 +1,13 @@
 import 'dart:ui';
 
-import 'package:demo01/common/routes/app_pages.dart';
-import 'package:demo01/common/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'common/observers/my_route_observer.dart';
+import 'common/routes/app_pages.dart';
+import 'common/routes/app_routes.dart';
 import 'common/utils/view_utils.dart';
 
 /// desktop 下拉组件需要支持鼠标  https://flutter.cn/docs/release/breaking-changes/default-scroll-behavior-drag#migration-guide

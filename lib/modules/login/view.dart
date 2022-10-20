@@ -1,15 +1,14 @@
-import 'package:demo01/common/routes/app_routes.dart';
-import 'package:demo01/common/utils/log_utils.dart';
-import 'package:demo01/common/utils/repeat_click.dart';
-import 'package:demo01/res/colors.dart';
-import 'package:demo01/res/res.dart';
-import 'package:demo01/res/strings.dart';
-import 'package:demo01/widget/base_root_view.dart';
-import 'package:demo01/widget/click_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../common/routes/app_routes.dart';
+import '../../common/utils/log_utils.dart';
+import '../../res/colors.dart';
+import '../../res/res.dart';
+import '../../res/strings.dart';
+import '../../widget/base_root_view.dart';
+import '../../widget/click_text.dart';
 import '../../widget/custom_text_field.dart';
 import '../../widget/radius_solid_button.dart';
 import '../../widget/radius_stroke_button.dart';
@@ -19,7 +18,7 @@ class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -123,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                           marginTop: 24.w,
                           radius: 10.w,
                           text: StringRes.register,
-                          onClick: (){
+                          onClick: () {
                             logger.e("点击注册");
                           },
                         ),

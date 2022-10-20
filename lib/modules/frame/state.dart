@@ -1,5 +1,7 @@
 class FrameState {
+  late int currentIndex;
+
   FrameState() {
-    ///Initialize variables
+    currentIndex = 0;
   }
 }

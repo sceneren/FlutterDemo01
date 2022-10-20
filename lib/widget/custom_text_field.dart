@@ -1,6 +1,7 @@
-import 'package:demo01/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../res/strings.dart';
 
 class CustomTextField extends StatelessWidget {
   String text;

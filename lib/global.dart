@@ -1,11 +1,11 @@
-import 'package:demo01/data/provider/api/api_client.dart';
-import 'package:demo01/data/provider/api/api_config.dart';
-import 'package:demo01/data/repositories/bili_repository.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'common/constants.dart';
+import 'data/provider/api/api_client.dart';
+import 'data/provider/api/api_config.dart';
+import 'data/repositories/bili_repository.dart';
 import 'getx/controllers/user.dart';
 import 'getx/services/storage_service.dart';
 

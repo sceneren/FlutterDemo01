@@ -5,15 +5,10 @@ import 'state.dart';
 class FrameLogic extends GetxController {
   final FrameState state = FrameState();
 
-  @override
-  void onReady() {
-    // TODO: implement onReady
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
+  void setCurrentIndex(int index) {
+    if (index != state.currentIndex) {
+      state.currentIndex = index;
+      update();
+    }
   }
 }

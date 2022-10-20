@@ -7,4 +7,9 @@ class StringRes {
   static const forgetPassword = "忘记密码";
   static const login = "登录";
   static const register = "注册";
+  static const home = "首页";
+  static const navigation = "导航";
+  static const question = "问答";
+  static const project = "项目";
+  static const mine = "我的";
 }

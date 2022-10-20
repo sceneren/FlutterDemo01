@@ -1,7 +1,7 @@
-import 'package:demo01/common/utils/repeat_click.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../common/utils/repeat_click.dart';
 import '../res/colors.dart';
 
 class RadiusStrokeButton extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:demo01/common/utils/loading.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/common/utils/loading.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 ///  请求逻辑处理上移到controller层

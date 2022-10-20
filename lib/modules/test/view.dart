@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:demo01/widget/custom_top_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../widget/custom_top_bar.dart';
 import 'logic.dart';
 
 class TestPage extends StatefulWidget {
+  const TestPage({super.key});
+
   @override
-  _TestPageState createState() => _TestPageState();
+  createState() => _TestPageState();
 }
 
 class _TestPageState extends State<TestPage> {

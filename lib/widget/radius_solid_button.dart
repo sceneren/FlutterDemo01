@@ -13,6 +13,8 @@ class RadiusSolidButton extends StatelessWidget {
   double marginTop;
   double marginRight;
   double marginBottom;
+  double fontSize;
+  FontWeight? fontWeight;
 
   RadiusSolidButton({
     Key? key,
@@ -25,6 +27,8 @@ class RadiusSolidButton extends StatelessWidget {
     this.marginTop = 0,
     this.marginRight = 0,
     this.marginBottom = 0,
+    this.fontSize = 14,
+    this.fontWeight = FontWeight.w500,
   }) : super(key: key);
 
   @override
@@ -46,6 +50,8 @@ class RadiusSolidButton extends StatelessWidget {
           constraints: const BoxConstraints(minWidth: double.infinity),
           child: Text(
             text ?? "",
+            style: TextStyle(
+                color: textColor, fontSize: fontSize, fontWeight: fontWeight),
           ),
         ));
   }

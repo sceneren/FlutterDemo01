@@ -1,4 +1,3 @@
-import 'package:demo01/common/utils/log_utils.dart';
 
 class RepeatClick {
   static var _lastPopTime = 0;
