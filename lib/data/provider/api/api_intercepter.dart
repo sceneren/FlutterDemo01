@@ -10,8 +10,8 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // 增加请求头
     options.headers.addAll({
-      "boarding-pass": Constants.BOARDING_PASS,
-      "auth-token": Constants.AUTH_TOKEN
+      "boarding-pass": Constants.boardingPass,
+      "auth-token": Constants.authToken
     });
     super.onRequest(options, handler);
   }

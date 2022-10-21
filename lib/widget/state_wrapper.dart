@@ -30,13 +30,13 @@ class StateWrapper extends StatelessWidget {
   }
 
   Widget _buildStateView() {
-    if (state == Constants.LOADING) {
+    if (state == Constants.loading) {
       return _loadingView();
     }
-    if (state == Constants.ERROR) {
+    if (state == Constants.error) {
       return _errorView();
     }
-    if (state == Constants.EMPTY) {
+    if (state == Constants.empty) {
       return _emptyView();
     }
     return Container();

@@ -79,6 +79,10 @@ dependencies:
   shared_preferences: ^2.0.13
   # web 解决图片不能加载
   shelf_proxy: ^1.0.1
+  #json注解
+  json_annotation: ^4.7.0
+  #json解析
+  json_serializable: ^6.5.3
 
 
   # The following adds the Cupertino Icons font to your application.

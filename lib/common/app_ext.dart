@@ -17,8 +17,8 @@ extension ControllerExt on GetxController {
       {required OnSuccess? onSuccess, OnFailure? onFailure}) async {
     try {
       Response response = await request();
-      var code = response.data["code"];
-      var msg = response.data["msg"];
+      var code = response.data["errorCode"];
+      var msg = response.data["errorMsg"];
       var data = response.data["data"];
       //业务码异常处理
       if (code == 0) {

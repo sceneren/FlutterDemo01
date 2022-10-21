@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/modules/home/view.dart';
+import 'package:flutter_demo/res/colors.dart';
 import 'package:get/get.dart';
 
 import '../../res/strings.dart';
@@ -63,7 +64,7 @@ class _FramePageState extends State<FramePage> {
           unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed,
           currentIndex: state.currentIndex,
-          fixedColor: Colors.amber[800],
+          fixedColor: ColorRes.colorTitleBarBg,
           onTap: (index) {
             logic.setCurrentIndex(index);
           },

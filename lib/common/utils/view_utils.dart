@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -53,7 +51,7 @@ BoxDecoration? bottomBoxShadow(BuildContext context) {
 }
 
 ///主题模式
-enum StatusStyle { LIGHT_CONTENT, DARK_CONTENT }
+enum StatusStyle { lightContent, darkContent }
 
 /// 显示隐藏状态栏
 void showStatusBar(bool isShow) {
@@ -69,13 +67,13 @@ void showStatusBar(bool isShow) {
 
 /// 设置状态栏文字颜色
 void setStatusBarColor({
-  StatusStyle statusStyle = StatusStyle.DARK_CONTENT,
+  StatusStyle statusStyle = StatusStyle.darkContent,
 }) {
 
   Brightness brightness;
   // 使用原生Platform 判断,web 会报错
   if (GetPlatform.isIOS) {
-    brightness = statusStyle == StatusStyle.LIGHT_CONTENT
+    brightness = statusStyle == StatusStyle.lightContent
         ? Brightness.dark
         : Brightness.light;
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -84,7 +82,7 @@ void setStatusBarColor({
       statusBarBrightness: brightness,
     ));
   } else if (GetPlatform.isAndroid) {
-    brightness = statusStyle == StatusStyle.LIGHT_CONTENT
+    brightness = statusStyle == StatusStyle.lightContent
         ? Brightness.light
         : Brightness.dark;
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

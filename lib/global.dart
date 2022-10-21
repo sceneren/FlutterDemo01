@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'common/constants.dart';
 import 'data/provider/api/api_client.dart';
 import 'data/provider/api/api_config.dart';
-import 'data/repositories/bili_repository.dart';
+import 'data/repositories/wan_repository.dart';
 import 'getx/controllers/user.dart';
 import 'getx/services/storage_service.dart';
 
@@ -28,13 +28,13 @@ class Global {
     }
     //网络组件初始化
     ApiConfig config = ApiConfig(
-        showLog: false,
-        baseUrl: Constants.BASE_URL,
-        headers: {"course-flag": Constants.COURSE_FLAG},
+        showLog: true,
+        baseUrl: Constants.baseUrl,
+        // headers: {"course-flag": Constants.courseFlag},
         cachePath: cachePath);
     ApiClient client = ApiClient(config);
     //创建数据仓库
-    Get.lazyPut(() => BiliRepository(client));
+    Get.lazyPut(() => WanRepository(client));
     //持久化存储服务
     await Get.putAsync<StorageService>(() => StorageService().init());
     //初始化用户配置

@@ -1,33 +1,32 @@
 class Constants {
   /// ---------------- 缺省页 ----------------
-  static const EMPTY = 0;
-  static const SUCCESS = 1;
-  static const LOADING = 2;
-  static const ERROR = 3;
+  static const empty = 0;
+  static const success = 1;
+  static const loading = 2;
+  static const error = 3;
 
   /// ---------------- 网络 ----------------
-  static const BASE_URL = "https://api.devio.org/uapi";
-  // static const BASE_URL = "http://localhost:8080/uapi";
-  static const BARRAGE_URL = "wss://api.devio.org/uapi/fa/barrage/";
+  // static const baseUrl = "https://api.devio.org/uapi";
+  static const baseUrl = "https://www.wanandroid.com";
 
   //用户登录后,产生的令牌
-  static const BOARDING_PASS = "33665CA3F23FEFE277A747A423BD9D43AF";
-  static const COURSE_FLAG = "fa";
+  static const boardingPass = "33665CA3F23FEFE277A747A423BD9D43AF";
+  static const courseFlag = "fa";
 
   //请求接口需要的token,定期修改,先本地写死
-  static const AUTH_TOKEN = "ZmEtMjAyMS0wNC0xMiAyMToyMjoyMC1mYQ==fa";
+  static const authToken = "ZmEtMjAyMS0wNC0xMiAyMToyMjoyMC1mYQ==fa";
 
   // socket 请求头
   static barrageHeaders() {
     Map<String, dynamic> header = {
-      "auth-token": AUTH_TOKEN,
-      "course-flag": COURSE_FLAG,
-      "boarding-pass": BOARDING_PASS
+      "auth-token": authToken,
+      "course-flag": courseFlag,
+      "boarding-pass": boardingPass
     };
     return header;
   }
 
   /// ---------------- 常量 ----------------
-  static const VID = "vid";
-  static const IS_LOGIN = "isLogin";
+  static const vid = "vid";
+  static const isLogin = "isLogin";
 }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class BaseRootView extends StatelessWidget {
-  Widget? child;
+  Widget child;
 
-  BaseRootView({Key? key, this.child}) : super(key: key);
+  BaseRootView({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,11 @@ class BaseRootView extends StatelessWidget {
               //点击空白关闭软键盘
               FocusScope.of(context).requestFocus(FocusNode());
             },
-            child: child //此处输入框
-            ));
+            child: WillPopScope(
+              onWillPop: () {
+                return Future.value(false);
+              },
+              child: child,
+            )));
   }
 }

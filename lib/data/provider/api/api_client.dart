@@ -9,7 +9,7 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'api_intercepter.dart';
 import 'api_config.dart';
 
-enum RequestMethod { GET, POST, DELETE, PUT }
+enum RequestMethod { get, post, delete, put }
 
 /// api 客户端
 class ApiClient {
@@ -69,22 +69,22 @@ class ApiClient {
       CancelToken? cancelToken}) async {
     late Response response;
 
-    if (method == RequestMethod.GET) {
+    if (method == RequestMethod.get) {
       response = await _dio.get(url,
           queryParameters: params,
           options: options,
           cancelToken: cancelToken ?? cancelToken);
-    } else if (method == RequestMethod.POST) {
+    } else if (method == RequestMethod.post) {
       response = await _dio.post(url,
           queryParameters: params,
           options: options,
           cancelToken: cancelToken ?? cancelToken);
-    } else if (method == RequestMethod.DELETE) {
+    } else if (method == RequestMethod.delete) {
       response = await _dio.delete(url,
           queryParameters: params,
           options: options,
           cancelToken: cancelToken ?? cancelToken);
-    } else if (method == RequestMethod.PUT) {
+    } else if (method == RequestMethod.put) {
       response = await _dio.put(url,
           queryParameters: params,
           options: options,

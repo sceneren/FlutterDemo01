@@ -11,7 +11,7 @@ class CustomTitleBar extends StatelessWidget {
   final Color color;
   final Widget? rightChild;
 
-  CustomTitleBar(
+  const CustomTitleBar(
       {Key? key,
       this.title = "",
       this.isShowBack = false,

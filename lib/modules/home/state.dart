@@ -1,5 +1,8 @@
+import 'package:flutter_demo/data/models/banner_info.dart';
+import 'package:get/get.dart';
+
 class HomeState {
-  HomeState() {
-    ///Initialize variables
-  }
+  var bannerList = RxList<BannerInfo>();
+
+  HomeState();
 }

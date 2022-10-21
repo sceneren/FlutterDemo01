@@ -15,13 +15,13 @@ class UserStore extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _isLogin.value = StorageService.to.getBool(Constants.IS_LOGIN);
+    _isLogin.value = StorageService.to.getBool(Constants.isLogin);
   }
 
 
   Future<void> saveLogin() async {
     _isLogin.value = true;
-    StorageService.to.setBool(Constants.IS_LOGIN, true);
+    StorageService.to.setBool(Constants.isLogin, true);
   }
 
 }

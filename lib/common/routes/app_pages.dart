@@ -11,18 +11,18 @@ class AppPages {
     //首页框架
     GetPage(
       name: AppRoutes.frame,
-      page: () => FramePage(),
+      page: () => const FramePage(),
       // middlewares: [AuthMiddleWare()],
     ),
     //列表页
     GetPage(
         name: AppRoutes.list,
-        page: () => ListPage(),
+        page: () => const ListPage(),
         transition: Transition.rightToLeft),
     //getX测试
     GetPage(
         name: AppRoutes.test,
-        page: () => TestPage(),
+        page: () => const TestPage(),
         transition: Transition.rightToLeft),
     //登录
     GetPage(
