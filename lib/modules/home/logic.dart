@@ -1,21 +1,26 @@
 import 'package:flutter_demo/common/app_ext.dart';
+import 'package:flutter_demo/common/controllers/base_page_controller.dart';
 import 'package:flutter_demo/common/utils/log_utils.dart';
+import 'package:flutter_demo/data/base/base_page_mo.dart';
+import 'package:flutter_demo/data/models/article_mo.dart';
 import 'package:flutter_demo/data/models/banner_info.dart';
+import 'package:flutter_demo/widget/refresh/refresh_ext.dart';
 import 'package:get/get.dart';
 
 import '../../data/repositories/wan_repository.dart';
 import 'state.dart';
 
-class HomeLogic extends GetxController {
+class HomeLogic extends BasePageController {
   final HomeState state = HomeState();
 
   @override
   void onReady() {
     super.onReady();
     getBannerData();
+    requestData(Refresh.down, 1);
   }
 
-  void getBannerData() {
+  void getBannerData() async {
     asyncRequest(
       () => WanRepository.to.banner(),
       onSuccess: (data) {
@@ -25,6 +30,34 @@ class HomeLogic extends GetxController {
       },
       onFailure: (error, code, msg) {
         logger.e("error:$error,code:$code,msg:$msg");
+      },
+    );
+  }
+
+  @override
+  void requestData(Refresh refresh, int page) async {
+    asyncRequest(
+      () => WanRepository.to.articleList(page),
+      onSuccess: (data) {
+        BasePageMo<ArticleMo> basePageMo = BasePageMo.fromJson(data, (json) {
+          return ArticleMo.fromJson(json);
+        });
+
+        logger.e("messageLength===>${basePageMo.datas?[0].title}");
+        if (refresh == Refresh.down) {
+          state.articleList.clear();
+        }
+        if (basePageMo.datas != null) {
+          state.articleList.addAll(basePageMo.datas!);
+        }
+
+        updatePage(page);
+        RefreshExt.onSuccess(refreshController, refresh,
+            basePageMo.curPage! >= basePageMo.pageCount!);
+        update();
+      },
+      onFailure: (error, code, msg) {
+        RefreshExt.onError(refreshController, refresh);
       },
     );
   }

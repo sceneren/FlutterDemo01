@@ -7,7 +7,7 @@ class Constants {
 
   /// ---------------- 网络 ----------------
   // static const baseUrl = "https://api.devio.org/uapi";
-  static const baseUrl = "https://www.wanandroid.com";
+  static const baseUrl = "https://www.wanandroid.com/";
 
   //用户登录后,产生的令牌
   static const boardingPass = "33665CA3F23FEFE277A747A423BD9D43AF";

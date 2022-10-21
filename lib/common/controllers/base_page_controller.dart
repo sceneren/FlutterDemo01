@@ -8,7 +8,7 @@ import 'base_empty_controller.dart';
 /// L 为列表数据模型
 abstract class BasePageController extends BaseEmptyController {
   //当前页数
-  int _page = 1;
+  int _page = 0;
 
   // 列表刷新适配器
   late RefreshController refreshController;

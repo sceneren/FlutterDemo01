@@ -11,25 +11,13 @@ class WanRepository extends GetxService {
 
   WanRepository(this.client);
 
-  /// 获取首页分类
-  Future<Response> loadHomeCategory(String categoryName, int pageIndex) {
-    return client.fire(RequestMethod.get, "/fa/home/$categoryName",
-        params: {"pageIndex": pageIndex, "pageSize": 20});
-  }
-
-  /// 获取视频详情
-  Future<Response> loadVideoDetail(String? vid) {
-    return client.fire(RequestMethod.get, "/fa/detail/$vid");
-  }
-
-  /// 通过sort获取排行数据
-  Future<Response> loadRankingDataBySort(String? sort, int pageIndex) {
-    return client.fire(RequestMethod.get, "/fa/ranking",
-        params: {"pageIndex": pageIndex, "pageSize": 10, "sort": sort});
-  }
-
   /// 获取banner
   Future<Response> banner() {
-    return client.fire(RequestMethod.get, "/banner/json");
+    return client.fire(RequestMethod.get, "banner/json");
+  }
+
+  /// 首页文章列表
+  Future<Response> articleList(int page) {
+    return client.fire(RequestMethod.get, "article/list/$page/json",params: {"page_size":40});
   }
 }

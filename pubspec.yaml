@@ -76,8 +76,6 @@ dependencies:
   shelf_proxy: ^1.0.2
   #json注解
   json_annotation: ^4.7.0
-  #json解析
-  json_serializable: ^6.5.3
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
@@ -92,6 +90,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.1
+
+  #json解析
+  json_serializable: ^6.5.3
+  build_runner: ^2.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -5,6 +5,7 @@ import 'package:flutter_demo/res/strings.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../widget/base_root_view.dart';
 import '../../widget/custom_top_bar.dart';
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeLogic>(builder: (logic) {
       List<Widget> list = [];
-      SizedBox sizedBox = SizedBox(
+      SizedBox banner = SizedBox(
         height: 300.w,
         child: Swiper(
           itemBuilder: (BuildContext context, int index) {
@@ -42,15 +43,8 @@ class _HomePageState extends State<HomePage> {
           )),
         ),
       );
-      list.add(sizedBox);
-      for (int i = 0; i < 20; i++) {
-        list.add(ListTile(
-          title: Text("item_$i"),
-          onTap: () {},
-        ));
-      }
-      List<Widget> divideList =
-          ListTile.divideTiles(context: context, tiles: list).toList();
+      list.add(banner);
+
       return BaseRootView(
           child: Column(children: [
         const CustomTitleBar(
@@ -61,10 +55,35 @@ class _HomePageState extends State<HomePage> {
             child: MediaQuery.removePadding(
           context: context,
           removeTop: true,
-          child: ListView(
-            children: divideList,
-          ),
-        ))
+          child: SmartRefresher(
+              controller: logic.refreshController,
+              enablePullDown: true,
+              enablePullUp: true,
+              onRefresh: logic.onRefresh,
+              onLoading: logic.onLoading,
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  if (index == 0) {
+                    return banner;
+                  }
+
+                  return ListTile(
+                    title: Text(state.articleList[index - 1].title ?? ""),
+                    onTap: () {},
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  if(index == 0){
+                    return const SizedBox();
+                  }
+                  return const Divider(
+                    height: 1,
+                    color: Colors.green,
+                  );
+                },
+                itemCount: state.articleList.length,
+              )),
+        )),
       ]));
     });
   }
