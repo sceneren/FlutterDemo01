@@ -1,17 +1,15 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 /// 显示网络图片 ,磁盘缓存
-Widget cachedImage(String url, {double? width, double? height , BoxFit? fit =BoxFit.cover }) {
+Widget cachedImage(String url,
+    {double? width, double? height, BoxFit? fit = BoxFit.cover}) {
   return CachedNetworkImage(
     imageUrl: url,
     height: height,
     width: width,
     fit: fit,
-
-    //占位图
+    // //占位图
     placeholder: (BuildContext context, String url) {
       return Container(
         color: Colors.grey[200],
@@ -22,5 +20,4 @@ Widget cachedImage(String url, {double? width, double? height , BoxFit? fit =Box
       return const Icon(Icons.error);
     },
   );
-
 }
