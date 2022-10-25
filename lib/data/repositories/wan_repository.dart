@@ -18,6 +18,12 @@ class WanRepository extends GetxService {
 
   /// 首页文章列表
   Future<Response> articleList(int page) {
-    return client.fire(RequestMethod.get, "article/list/$page/json",params: {"page_size":40});
+    return client.fire(RequestMethod.get, "article/list/$page/json",
+        params: {"page_size": 40});
+  }
+
+  ///项目分类
+  Future<Response> projectTree() {
+    return client.fire(RequestMethod.get, "project/tree/json");
   }
 }

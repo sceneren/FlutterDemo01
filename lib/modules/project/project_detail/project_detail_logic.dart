@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import 'state.dart';
+import 'project_detail_state.dart';
 
-class ProjectLogic extends GetxController {
-  final ProjectState state = ProjectState();
+class ProjectDetailLogic extends GetxController {
+  final ProjectDetailState state = ProjectDetailState();
 
   @override
   void onReady() {

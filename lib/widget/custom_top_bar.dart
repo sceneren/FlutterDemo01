@@ -12,12 +12,14 @@ class CustomTitleBar extends StatelessWidget {
   final bool isShowBack;
   final Color color;
   final Widget? rightChild;
+  final bool showTitleBar;
 
   const CustomTitleBar(
       {Key? key,
       this.title = "",
       this.isShowBack = false,
       this.rightChild,
+      this.showTitleBar = true,
       this.color = ColorRes.colorTitleBarBg})
       : super(key: key);
 
@@ -25,14 +27,24 @@ class CustomTitleBar extends StatelessWidget {
   Widget build(BuildContext context) {
     _statusBarInit();
     //获取距离顶部的高度,可以空出水滴,刘海的位置
-    var top = MediaQuery.of(context).padding.top;
+    var statusBarHeight = ScreenUtil().statusBarHeight;
     if (Platform.isIOS) {
-      top = top - 15;
+      statusBarHeight = statusBarHeight - 15;
     }
+
+    var titleBarHeight = 97.w;
+
+    double totalHeight;
+    if (showTitleBar) {
+      totalHeight = statusBarHeight +titleBarHeight;
+    } else {
+      totalHeight = statusBarHeight;
+    }
+
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: top + 97.w,
-      padding: EdgeInsets.only(top: top),
+      height: totalHeight,
+      padding: EdgeInsets.only(top: statusBarHeight),
       decoration: BoxDecoration(color: color),
       child: Stack(
         children: [
@@ -42,8 +54,8 @@ class CustomTitleBar extends StatelessWidget {
                 Get.back();
               },
               child: Container(
-                width: 97.w,
-                height: 97.w,
+                width: titleBarHeight,
+                height: titleBarHeight,
                 alignment: Alignment.center,
                 child: Icon(
                   Icons.arrow_back_ios,
@@ -53,7 +65,7 @@ class CustomTitleBar extends StatelessWidget {
               ),
             ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 97.w),
+            margin: EdgeInsets.symmetric(horizontal: titleBarHeight),
             child: Center(
               child: Text(
                 title,

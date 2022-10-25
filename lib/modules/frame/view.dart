@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../../res/strings.dart';
 import '../mine/view.dart';
 import '../navigation/navigation_view.dart';
-import '../project/view.dart';
+import '../project/project_view.dart';
 import '../question/view.dart';
 import 'logic.dart';
 
