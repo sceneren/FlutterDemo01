@@ -21,7 +21,7 @@ abstract class BasePageController extends BaseEmptyController {
 
   ///预留上拉刷新
   void onRefresh() {
-    requestData(Refresh.down, 1);
+    requestData(Refresh.down, 0);
   }
 
   ///预留下拉加载

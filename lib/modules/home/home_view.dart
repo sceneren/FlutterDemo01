@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/common/utils/image_utils.dart';
+import 'package:flutter_demo/common/utils/log_utils.dart';
+import 'package:flutter_demo/modules/home/widget/home_item.dart';
 import 'package:flutter_demo/res/colors.dart';
 import 'package:flutter_demo/res/strings.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +11,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../widget/base_root_view.dart';
 import '../../widget/custom_top_bar.dart';
-import 'logic.dart';
+import 'home_logic.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,6 +36,7 @@ class _HomePageState extends State<HomePage> {
           },
           itemCount: state.bannerList.length,
           key: UniqueKey(),
+          autoplay: true,
           pagination: const SwiperPagination(
               builder: DotSwiperPaginationBuilder(
             color: ColorRes.color_AAAAB9,
@@ -66,14 +69,15 @@ class _HomePageState extends State<HomePage> {
                   if (index == 0) {
                     return banner;
                   }
-
-                  return ListTile(
-                    title: Text(state.articleList[index - 1].title ?? ""),
-                    onTap: () {},
+                  return HomeItem(
+                    articleMo: state.articleList[index - 1],
+                    onTap: () {
+                      logger.e(state.articleList[index - 1].toJson());
+                    },
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {
-                  if(index == 0){
+                  if (index == 0) {
                     return const SizedBox();
                   }
                   return const Divider(

@@ -8,7 +8,7 @@ import 'package:flutter_demo/widget/refresh/refresh_ext.dart';
 import 'package:get/get.dart';
 
 import '../../data/repositories/wan_repository.dart';
-import 'state.dart';
+import 'home_state.dart';
 
 class HomeLogic extends BasePageController {
   final HomeState state = HomeState();
@@ -16,8 +16,8 @@ class HomeLogic extends BasePageController {
   @override
   void onReady() {
     super.onReady();
+    requestData(Refresh.down, 0);
     getBannerData();
-    requestData(Refresh.down, 1);
   }
 
   void getBannerData() async {
@@ -36,6 +36,9 @@ class HomeLogic extends BasePageController {
 
   @override
   void requestData(Refresh refresh, int page) async {
+    if (page == 0) {
+      getBannerData();
+    }
     asyncRequest(
       () => WanRepository.to.articleList(page),
       onSuccess: (data) {
@@ -43,7 +46,6 @@ class HomeLogic extends BasePageController {
           return ArticleMo.fromJson(json);
         });
 
-        logger.e("messageLength===>${basePageMo.datas?[0].title}");
         if (refresh == Refresh.down) {
           state.articleList.clear();
         }

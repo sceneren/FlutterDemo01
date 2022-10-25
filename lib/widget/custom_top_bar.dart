@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -24,6 +26,9 @@ class CustomTitleBar extends StatelessWidget {
     _statusBarInit();
     //获取距离顶部的高度,可以空出水滴,刘海的位置
     var top = MediaQuery.of(context).padding.top;
+    if (Platform.isIOS) {
+      top = top - 15;
+    }
     return Container(
       width: MediaQuery.of(context).size.width,
       height: top + 97.w,

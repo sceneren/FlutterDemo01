@@ -31,6 +31,8 @@ class ColorRes {
 
   static const color_FFFFFF = Color(0xFFFFFFFF);
 
+  static const color_ff0000 = Color(0xFFFF0000);
+
 
 
 

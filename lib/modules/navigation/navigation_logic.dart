@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'state.dart';
+import 'navigation_state.dart';
 
 class NavigationLogic extends GetxController {
   final NavigationState state = NavigationState();

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/modules/home/widget/home_item.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'logic.dart';
+import 'navigation_logic.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -16,9 +18,9 @@ class _NavigationPageState extends State<NavigationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0, MediaQuery.of(context).padding.top, 0, 0),
-      child: const Text("我是导航组件"),
+    return SafeArea(
+      top: true,
+      child: HomeItem(),
     );
   }
 

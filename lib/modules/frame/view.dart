@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/modules/home/view.dart';
+import 'package:flutter_demo/modules/home/home_view.dart';
 import 'package:flutter_demo/res/colors.dart';
 import 'package:get/get.dart';
 
 import '../../res/strings.dart';
 import '../mine/view.dart';
-import '../navigation/view.dart';
+import '../navigation/navigation_view.dart';
 import '../project/view.dart';
 import '../question/view.dart';
 import 'logic.dart';
