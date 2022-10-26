@@ -1,9 +1,4 @@
 class Constants {
-  /// ---------------- 缺省页 ----------------
-  static const empty = 0;
-  static const success = 1;
-  static const loading = 2;
-  static const error = 3;
 
   /// ---------------- 网络 ----------------
   // static const baseUrl = "https://api.devio.org/uapi";

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'common/observers/my_route_observer.dart';
 import 'common/routes/app_pages.dart';
@@ -44,23 +45,24 @@ class Application extends StatelessWidget {
       designSize: const Size(750, 1334),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) {
-        return MediaQuery(
-          data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
-              .copyWith(textScaleFactor: 1.0),
-          child: GetMaterialApp(
-            debugShowCheckedModeBanner: false,
-            navigatorObservers: [
-              // myRouteObserver,
-              routeObserver,
-            ],
-            scrollBehavior: MyCustomScrollBehavior(),
-            //全局loading
-            builder: EasyLoading.init(),
-            initialRoute: AppRoutes.frame,
-            getPages: AppPages.pages,
-          ),
-        );
+      builder: (context, child) {
+        //这句不能少，更新context
+        // ScreenUtil.init(context);
+        return RefreshConfiguration(
+            headerBuilder: () => const ClassicHeader(),
+            footerBuilder: () => const ClassicFooter(),
+            child: GetMaterialApp(
+              navigatorObservers: [
+                // myRouteObserver,
+                routeObserver,
+              ],
+              debugShowCheckedModeBanner: false,
+              scrollBehavior: MyCustomScrollBehavior(),
+              //全局loading
+              builder: EasyLoading.init(),
+              initialRoute: AppRoutes.frame,
+              getPages: AppPages.pages,
+            ));
       },
     );
   }

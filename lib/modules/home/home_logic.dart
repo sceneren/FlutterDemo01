@@ -16,7 +16,7 @@ class HomeLogic extends BasePageController {
   @override
   void onReady() {
     super.onReady();
-    requestData(Refresh.down, 0);
+    requestData(Refresh.down, BasePageController.defaultPage);
     getBannerData();
   }
 
@@ -35,8 +35,8 @@ class HomeLogic extends BasePageController {
   }
 
   @override
-  void requestData(Refresh refresh, int page) async {
-    if (page == 0) {
+  void requestData(Refresh refresh, int page, [bool isFirst = true]) async {
+    if (page == BasePageController.defaultPage) {
       getBannerData();
     }
     asyncRequest(
@@ -53,6 +53,9 @@ class HomeLogic extends BasePageController {
           state.articleList.addAll(basePageMo.datas!);
         }
 
+        if (isFirst) {
+          showSuccess(state.articleList.isEmpty);
+        }
         updatePage(page);
         RefreshExt.onSuccess(refreshController, refresh,
             basePageMo.curPage! >= basePageMo.pageCount!);

@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../res/res.dart';
-import '../common/constants.dart';
 import '../res/colors.dart';
+
+enum LoadState { loading, success, error, empty }
 
 /// 统一缺省页
 class StateWrapper extends StatelessWidget {
@@ -12,7 +13,7 @@ class StateWrapper extends StatelessWidget {
   Widget child;
 
   //当前状态
-  int state;
+  LoadState state;
 
   StateWrapper({Key? key, required this.child, required this.state})
       : super(key: key);
@@ -30,13 +31,13 @@ class StateWrapper extends StatelessWidget {
   }
 
   Widget _buildStateView() {
-    if (state == Constants.loading) {
+    if (state == LoadState.loading) {
       return _loadingView();
     }
-    if (state == Constants.error) {
+    if (state == LoadState.error) {
       return _errorView();
     }
-    if (state == Constants.empty) {
+    if (state == LoadState.empty) {
       return _emptyView();
     }
     return Container();

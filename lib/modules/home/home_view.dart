@@ -4,10 +4,11 @@ import 'package:flutter_demo/common/utils/log_utils.dart';
 import 'package:flutter_demo/modules/home/widget/home_item.dart';
 import 'package:flutter_demo/res/colors.dart';
 import 'package:flutter_demo/res/strings.dart';
+import 'package:flutter_demo/widget/refresh/custom_refresh.dart';
+import 'package:flutter_demo/widget/state_wrapper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import '../../widget/base_root_view.dart';
 import '../../widget/custom_top_bar.dart';
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeLogic>(builder: (logic) {
+    return GetBuilder<HomeLogic>(builder: (logic2) {
       List<Widget> list = [];
       SizedBox banner = SizedBox(
         height: 300.w,
@@ -58,35 +59,33 @@ class _HomePageState extends State<HomePage> {
             child: MediaQuery.removePadding(
           context: context,
           removeTop: true,
-          child: SmartRefresher(
-              controller: logic.refreshController,
-              enablePullDown: true,
-              enablePullUp: true,
-              onRefresh: logic.onRefresh,
-              onLoading: logic.onLoading,
-              child: ListView.separated(
-                itemBuilder: (context, index) {
-                  if (index == 0) {
-                    return banner;
-                  }
-                  return HomeItem(
-                    articleMo: state.articleList[index - 1],
-                    onTap: () {
-                      logger.e(state.articleList[index - 1].toJson());
-                    },
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  if (index == 0) {
-                    return const SizedBox();
-                  }
-                  return const Divider(
-                    height: 1,
-                    color: Colors.green,
-                  );
-                },
-                itemCount: state.articleList.length,
-              )),
+          child: StateWrapper(
+            state: logic.loadState,
+            child: CustomRefresh<HomeLogic>(
+                child: ListView.separated(
+                  itemCount: state.articleList.length,
+                  itemBuilder: (context, index) {
+                    if (index == 0) {
+                      return banner;
+                    }
+                    return HomeItem(
+                      articleMo: state.articleList[index - 1],
+                      onTap: () {
+                        logger.e(state.articleList[index - 1].toJson());
+                      },
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    if (index == 0) {
+                      return const SizedBox();
+                    }
+                    return const Divider(
+                      height: 1,
+                      color: Colors.green,
+                    );
+                  },
+                )),
+          ),
         )),
       ]));
     });

@@ -5,7 +5,7 @@ import '../../data/models/project_category_mo.dart';
 import '../../data/repositories/wan_repository.dart';
 import 'project_state.dart';
 
-class ProjectLogic extends GetxController {
+class ProjectLogic extends GetxController with GetTickerProviderStateMixin {
   final ProjectState state = ProjectState();
 
   @override
@@ -22,9 +22,7 @@ class ProjectLogic extends GetxController {
         state.list.assignAll(listMo.list ?? []);
         update();
       },
-      onFailure: (error, code, msg) {
-
-      },
+      onFailure: (error, code, msg) {},
     );
   }
 }

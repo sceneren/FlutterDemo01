@@ -26,4 +26,10 @@ class WanRepository extends GetxService {
   Future<Response> projectTree() {
     return client.fire(RequestMethod.get, "project/tree/json");
   }
+
+  ///项目列表数据
+  Future<Response> projectList(int page, int cid) {
+    return client.fire(RequestMethod.get, "project/list/$page/json",
+        params: {"cid": cid, "page_size": 20});
+  }
 }
