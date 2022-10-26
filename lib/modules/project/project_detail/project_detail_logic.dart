@@ -15,7 +15,6 @@ class ProjectDetailLogic extends BasePageController {
 
   @override
   void requestData(Refresh refresh, int page, [bool isFirst = true]) async {
-    print("isFirst===> $isFirst");
     asyncRequest(
       () => WanRepository.to.projectList(page, cid),
       onSuccess: (data) {

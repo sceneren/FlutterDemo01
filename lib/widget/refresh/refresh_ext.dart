@@ -1,3 +1,4 @@
+import 'package:flutter_demo/common/utils/log_utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 /// 刷新状态
@@ -29,6 +30,7 @@ class RefreshExt {
   ///[refresh] 加载类型 第一次、上拉、下拉
   ///[over] 是否为最后一页
   static onSuccess(RefreshController controller, Refresh refresh, bool over) {
+    logger.e("onSuccess===>over:$over,refresh =${refresh.name}");
     if (refresh == Refresh.up) {
       if (over) {
         //最后一页
@@ -38,6 +40,15 @@ class RefreshExt {
       }
     } else if (refresh == Refresh.down) {
       controller.refreshCompleted(resetFooterState: true);
+      if (over) {
+        //最后一页
+        controller.loadNoData();
+      }
+    } else {
+      if (over) {
+        //最后一页
+        controller.loadNoData();
+      }
     }
   }
 }
