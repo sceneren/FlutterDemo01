@@ -15,7 +15,10 @@ class StateWrapper extends StatelessWidget {
   //当前状态
   LoadState state;
 
-  StateWrapper({Key? key, required this.child, required this.state})
+  Function? onRetry;
+
+  StateWrapper(
+      {Key? key, required this.child, required this.state, this.onRetry})
       : super(key: key);
 
   @override
@@ -95,22 +98,27 @@ class StateWrapper extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       color: ColorRes.color_F5F5F9,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            Res.bgLoginBottom,
-            width: 150.w,
-            height: 150.w,
-          ),
-          SizedBox(
-            height: 37.h,
-          ),
-          Text(
-            "加载异常",
-            style: TextStyle(color: ColorRes.color_AAAAB9, fontSize: 14.sp),
-          )
-        ],
+      child: GestureDetector(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              Res.bgLoginBottom,
+              width: 150.w,
+              height: 150.w,
+            ),
+            SizedBox(
+              height: 37.h,
+            ),
+            Text(
+              "加载异常",
+              style: TextStyle(color: ColorRes.color_AAAAB9, fontSize: 14.sp),
+            )
+          ],
+        ),
+        onTap: () {
+          onRetry?.call();
+        },
       ),
     );
   }

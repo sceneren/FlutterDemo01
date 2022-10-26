@@ -8,18 +8,16 @@ import '../../../data/base/base_page_mo.dart';
 import 'project_detail_state.dart';
 
 class ProjectDetailLogic extends BasePageController {
+  late int cid;
   final state = ProjectDetailState();
 
-  @override
-  void onReady() {
-    super.onReady();
-    requestData(Refresh.first, BasePageController.defaultPage);
-  }
+  ProjectDetailLogic({required this.cid});
 
   @override
   void requestData(Refresh refresh, int page, [bool isFirst = true]) async {
+    print("isFirst===> $isFirst");
     asyncRequest(
-      () => WanRepository.to.projectList(page, state.cid),
+      () => WanRepository.to.projectList(page, cid),
       onSuccess: (data) {
         BasePageMo<ProjectMo> basePageMo = BasePageMo.fromJson(data, (json) {
           return ProjectMo.fromJson(json);

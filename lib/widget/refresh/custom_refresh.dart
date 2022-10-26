@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/common/controllers/base_page_controller.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+
+import '../../common/controllers/base_page_controller.dart';
 
 /// 自定义refresh
 class CustomRefresh<T extends BasePageController> extends StatelessWidget {

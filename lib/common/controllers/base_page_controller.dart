@@ -20,14 +20,25 @@ abstract class BasePageController extends BaseEmptyController {
     refreshController = RefreshController(initialRefresh: false);
   }
 
+  @override
+  void onReady() {
+    super.onReady();
+    firstRequest();
+  }
+
+  void firstRequest() {
+    showLoading();
+    requestData(Refresh.first, BasePageController.defaultPage);
+  }
+
   ///预留上拉刷新
   void onRefresh() {
-    requestData(Refresh.down, defaultPage,false);
+    requestData(Refresh.down, defaultPage, false);
   }
 
   ///预留下拉加载
   void onLoading() {
-    requestData(Refresh.up, _page + 1,false);
+    requestData(Refresh.up, _page + 1, false);
   }
 
   ///网络请求在此处进行，不用在重复进行上拉下拉的处理
